@@ -1,6 +1,9 @@
 import streamlit as st
 import time
 from controllers.load_usuarios import load_usuarios  
+from components.cadastro import cadastrar_aluno
+
+st.set_page_config("Sistema de Casdastro", layout="wide")
 
 st.title("Projeto streamlit")
 
@@ -35,17 +38,6 @@ def logout():
         st.session_state.clear()
         st.success("Finalizando o Sistema")
         time.sleep(3)
-
-@st.dialog("Formulario de cadastro de aluno")
-def cadastrar_aluno():
-    nome_aluno = st.text_input("Nome do Aluno", placeholder= "Nome do Aluno")
-    email_aluno = st.text_input("Email do Aluno", placeholder= "Email do Aluno")
-    cpf_aluno = st.text_input("CPF do Aluno", placeholder= "CPF do Aluno")
-    datadenasci_aluno = st.date_input("Data do Aluno")
-    telefone_aluno = st.text_input("Telefone do Aluno", placeholder= "Telefone do Aluno")
-
-btn_cadastrar = st.button(f"Cadastrar")
-
 
 def main_page():
     tabs = st.tabs(["Dashboard", "Cadastro", "Logout"])
